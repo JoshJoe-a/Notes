@@ -200,7 +200,7 @@
 
 ##### 1)类型
 
-![盒模型](/images/boxmodel.jpg)
+![盒模型](images\boxmodel.jpg)
 
 + 概念
   + content-box - 内容就是盒子的边界
@@ -252,7 +252,7 @@
 
 ##### 2）布局方式
 
-<img src="images/set-layout.png" alt="布局选择" style="zoom:80%;" />
+<img src="images\布局设置.png" alt="布局选择" style="zoom:80%;" />
 
 ##### 3）Float布局
 
@@ -289,7 +289,7 @@
 
   * **container**
 
-    <img src="images/container.png" alt="container" style="zoom:60%;" />
+    <img src="images\container.png" alt="container" style="zoom:60%;" />
 
     ```css
     /*父级（弹性容器）的属性*/
@@ -330,7 +330,7 @@
 
   * **items**
 
-    <img src="images/items.png" alt="items" style="zoom:60%;" />
+    <img src="images\items.png" alt="items" style="zoom:60%;" />
 
     ```css
     /* 控制它们在弹性容器中的显示顺序 */
@@ -366,7 +366,7 @@
 
 * 弹性盒子小游戏
 
-  *  链接：<a>flexboxfroggy.com</a>
+  * 链接: flexboxfroggy.com
 
 ##### 5） Grid布局
 
@@ -426,5 +426,111 @@
   
     * 示例
   
-      <img src="images/grid-column-row.png" alt="grig-column-row" style="zoom: 80%;" />
+      <img src="images\grid-column-row.png" alt="grig-column-row" style="zoom: 80%;" />
+  
 
+##### 6）CSS定位
+
+* 定位/布局的区别
+
+  * 布局是屏幕平面上的
+  * 定位是**垂直于屏幕**的
+
+* div分层
+
+  <img src="F:\Markdown文档\images\css-position.png" alt="CSS定位" style="zoom: 50%;" />
+
+* position属性
+
+  * 属性值
+    * static默认值，待在文档流里
+    * relative相对定位，升起来，但不脱离文档流，配合`z-index`使用
+    * absolute绝对定位，定位基准是祖先中的第一个非static
+      * 某些浏览器如果不写`top/left`会位置错乱
+      * 善用`left:100%`或`left:50%`+负`margin`
+    * fixed固定定位，定位基准是viewport
+      * 常用于广告或回到顶部的按钮
+      * 手机上尽量不使用这个属性
+    * sticky粘滞定位
+  * 说明
+    * 若使用`position:absolute`，在其父元素补一个`position:relative`
+    * 若使用`position:absolute | fixed`，一定要补`top: 2px`和`left:2px`
+    * sticky兼容性差，不经常使用
+
+* 层叠上下文
+
+  * 内容
+
+    <img src="images\cengdie.png" alt="层叠上下文" style="zoom: 33%;" />
+
+  * 可以创建层叠上下文的属性
+
+    * `z-index`
+    * `flex`
+    * `opacity`
+    * `transform`
+
+  * 负`z-index`与层叠上下文
+
+    + 负`z-index`逃不出小世界
+
+##### 7）CSS动画
+
+* 动画
+  * 由许多静止的画面（帧）以一定的速度连续播放时，肉眼产生的错觉
+  * 帧：每个静止的画面都叫做帧，每秒播放的帧数称为播放速度
+  * 方式：修改`left`或`transform`
+  
+* 浏览器渲染原理
+
+  * 根据 HTML 构建 HTML 树（ DOM )
+
+  * 根据 CSS 构建 CSS 树（ CSSOM )
+
+  * 将两棵树合并成一颗渲染树（ render tree )
+
+  *  Layout 布局（文档流、盒模型、计算大小和位置）
+
+  * Paint 绘制（把边框颜色、文字颜色、阴影等画出来）
+
+  * Compose 合成（根据层叠关系展示画面）
+
+    <img src="images\DOM-Tree.PNG" alt="文档树" style="zoom: 50%;" />
+
+* JavaScript更新样式
+
+  * `div.style.background='red'`
+  * `div.classList.add('red')`
+  * `div.remove()`
+
+* transform
+
+  * 常用功能：位移、缩放、旋转、倾斜
+  * 建议搭配transition使用
+
+* transition
+
+  * 作用：添加中间帧
+  * 使用：`transition:属性名 时长 过渡方式 延迟`
+
+* animation
+
+  ```css
+  #demo{
+      animation:xxx 1.5s;
+  }
+  
+  @keyframes xxx{
+      0%{
+          transform:none;
+      }
+      60%{
+          transform:translateX(200px);
+      }
+      100%{
+          transform:translateX(200px) translateY(200px);
+      }
+  }
+  ```
+
+  
