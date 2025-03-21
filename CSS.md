@@ -200,7 +200,7 @@
 
 ##### 1)类型
 
-![盒模型](images\boxmodel.jpg)
+<img src="images/boxmodel.jpg" alt="盒模型"></img>
 
 + 概念
   + content-box - 内容就是盒子的边界
@@ -438,7 +438,7 @@
 
 * div分层
 
-  <img src="F:\Markdown文档\images\css-position.png" alt="CSS定位" style="zoom: 50%;" />
+  <img src="images\css-position.png" alt="CSS定位" style="zoom: 50%;" />
 
 * position属性
 
